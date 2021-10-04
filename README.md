@@ -22,8 +22,8 @@ https://github.com/oblador/react-native-animatable
 
 Tutorial:
 * Tab1 link: https://youtu.be/XiutL0uLICg
-* Tab2 link: soon...
-* Tab3 link: soon...
+* Tab2 link: https://youtu.be/spA7Rf9Ud_4
+* Tab3 link: https://youtu.be/Y7apwk6hQOY
 
 ### Demo
 <img src="/gif/anim-Tab.gif" width="250" height="520" />
