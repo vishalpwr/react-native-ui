@@ -26,14 +26,14 @@ Tutorial:
 * Tab3 link: https://youtu.be/Y7apwk6hQOY
 
 ### Demo
-<img src="/gif/anim-Tab.gif" width="250" height="520" />
+<img src="/gif/anim-Tab.gif" width="250" height="500" />
 
 ### For Tab4:
 * https://reactnavigation.org/docs/material-bottom-tab-navigator
 ```
 npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
 ```
-<img src="/gif/tab4.jpg" width="250" height="180" />
+<img src="/gif/tab4.jpg" width="250" height="120" />
 
 ### For Tab5:
 * https://reactnavigation.org/docs/material-top-tab-navigator
@@ -46,4 +46,4 @@ for expo
 expo install react-native-pager-view
 ```
 
-<img src="/gif/tab5.jpg" width="250" height="180" />
+<img src="/gif/tab5.jpg" width="250" height="140" />
