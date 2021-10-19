@@ -33,7 +33,7 @@ Tutorial:
 ```
 npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
 ```
-<img src="/gif/tab4,jpg" width="250" height="250" />
+<img src="/gif/tab4.jpg" width="250" height="180" />
 
 ### For Tab5:
 * https://reactnavigation.org/docs/material-top-tab-navigator
@@ -46,4 +46,4 @@ for expo
 expo install react-native-pager-view
 ```
 
-<img src="/gif/tab5,jpg" width="250" height="250" />
+<img src="/gif/tab5.jpg" width="250" height="180" />
