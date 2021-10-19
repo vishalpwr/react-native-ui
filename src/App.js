@@ -18,6 +18,8 @@ import AnimTab1 from './bottomTab/AnimTab1';
 import AnimTab2 from './bottomTab/AnimTab2';
 import AnimTab3 from './bottomTab/AnimTab3';
 import Home from './bottomTab/Home';
+import Tab4 from './bottomTab/Tab4';
+import Tab5 from './bottomTab/Tab5';
 import Colors from './constants/Colors';
 
 const App = () => {
@@ -56,6 +58,8 @@ const RootStack = () => {
       <Stack.Screen name="Tab1" component={AnimTab1} />
       <Stack.Screen name="Tab2" component={AnimTab2} />
       <Stack.Screen name="Tab3" component={AnimTab3} />
+      <Stack.Screen name="Tab4" component={Tab4} />
+      <Stack.Screen name="Tab5" component={Tab5} />
     </Stack.Navigator>
   )
 }

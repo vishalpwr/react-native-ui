@@ -13,6 +13,8 @@ const Home = ({ navigation }) => {
         <List.Item title="Animatable Tab1" onPress={() => navigate('Tab1')} />
         <List.Item title="Animatable Tab2" onPress={() => navigate('Tab2')} />
         <List.Item title="Animatable Tab3" onPress={() => navigate('Tab3')} />
+        <List.Item title="Animatable Tab4" onPress={() => navigate('Tab4')} />
+        <List.Item title="Animatable Tab5" onPress={() => navigate('Tab5')} />
       </List.Accordion>
     </View>
   )

@@ -30,7 +30,7 @@ const Icon = ({type, name, color, size=24, style}) => {
     const Tag = type;
     return (
         <>
-            {type && (
+            {type && name && (
                 <Tag name={name} size={size || fontSize} color={color} style={style} />
             )}
         </>
