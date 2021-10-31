@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
-import Screen from './Screen';
+import Screen from '../screens/Screen';
 import Colors from '../constants/Colors';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 

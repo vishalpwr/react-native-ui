@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Linking, StyleSheet, Text, View } from 'react-native'
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
+import { Button } from 'react-native-paper';
 
 export default function Screen({ route, navigation }) {
   return (
@@ -14,8 +15,7 @@ export default function Screen({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       />
+      <Button onPress={() => { }}>Open Something</Button>
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

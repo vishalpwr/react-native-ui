@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon, { Icons } from '../components/Icons';
-import Screen from './Screen';
+import Screen from '../screens/Screen';
 import Colors from '../constants/Colors';
 
 const Tab = createMaterialBottomTabNavigator();

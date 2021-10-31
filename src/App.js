@@ -17,7 +17,7 @@ import {
 import AnimTab1 from './bottomTab/AnimTab1';
 import AnimTab2 from './bottomTab/AnimTab2';
 import AnimTab3 from './bottomTab/AnimTab3';
-import Home from './bottomTab/Home';
+import Home from './screens/Home';
 import Tab4 from './bottomTab/Tab4';
 import Tab5 from './bottomTab/Tab5';
 import Colors from './constants/Colors';
