@@ -21,6 +21,9 @@ import Home from './screens/Home';
 import Tab4 from './bottomTab/Tab4';
 import Tab5 from './bottomTab/Tab5';
 import Colors from './constants/Colors';
+import ContactList from './screens/ContactList';
+import ListScreen from './screens/ListScreen';
+import { Provider } from 'react-native-paper';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,13 +34,15 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={Colors.white} />
-      <NavigationContainer>
-        <RootStack />
-      </NavigationContainer>
-    </SafeAreaView>
+    <Provider>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={Colors.white} />
+        <NavigationContainer>
+          <RootStack />
+        </NavigationContainer>
+      </SafeAreaView>
+    </Provider>
   );
 };
 
@@ -60,6 +65,8 @@ const RootStack = () => {
       <Stack.Screen name="Tab3" component={AnimTab3} />
       <Stack.Screen name="Tab4" component={Tab4} />
       <Stack.Screen name="Tab5" component={Tab5} />
+      <Stack.Screen name="Contacts" component={ContactList} />
+      <Stack.Screen name="List" component={ListScreen} />
     </Stack.Navigator>
   )
 }

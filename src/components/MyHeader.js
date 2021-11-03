@@ -6,7 +6,23 @@ import Colors from '../constants/Colors';
 
 const IconSize = 24;
 
-const AppHeader = ({ style, menu, onPressMenu, back, onPressBack, title, right, onRightPress, optionalBtn, optionalBtnPress, rightComponent, headerBg="white", iconColor='black', titleAlight, optionalBadge }) => {
+const AppHeader = ({
+	style,
+	menu,
+	onPressMenu,
+	back,
+	onPressBack,
+	title,
+	right,
+	rightComponent,
+	onRightPress,
+	optionalBtn,
+	optionalBtnPress,
+	headerBg = "white",
+	iconColor = 'black',
+	titleAlight,
+	optionalBadge
+}) => {
 
 	const LeftView = () => (
 		<View style={styles.view}>

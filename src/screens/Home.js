@@ -16,6 +16,12 @@ const Home = ({ navigation }) => {
         <List.Item title="Animatable Tab4" onPress={() => navigate('Tab4')} />
         <List.Item title="Animatable Tab5" onPress={() => navigate('Tab5')} />
       </List.Accordion>
+      <List.Accordion
+        title="List Animation"
+        left={props => <List.Icon {...props} icon="folder" />}>
+        <List.Item title="Contacts Screen" onPress={() => navigate('Contacts')} />
+        <List.Item title="List Screen" onPress={() => navigate('List')} />
+      </List.Accordion>
     </View>
   )
 }
