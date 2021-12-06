@@ -24,6 +24,10 @@ import Colors from './constants/Colors';
 import ContactList from './screens/ContactList';
 import ListScreen from './screens/ListScreen';
 import { Provider } from 'react-native-paper';
+import Screen from './screens/Screen';
+import ProductList from './screens/shop/ProductList';
+import ProductDetails from './screens/shop/ProductDetails';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -53,7 +57,7 @@ const options = {
   headerShown: false,
 }
 
-const Stack = createStackNavigator();
+const Stack = createSharedElementStackNavigator();
 
 const RootStack = () => {
   return (
@@ -67,6 +71,10 @@ const RootStack = () => {
       <Stack.Screen name="Tab5" component={Tab5} />
       <Stack.Screen name="Contacts" component={ContactList} />
       <Stack.Screen name="List" component={ListScreen} />
+      <Stack.Screen name="Screen" component={Screen} />
+      <Stack.Screen name="ProductList" component={ProductList} />
+      <Stack.Screen name="ProductDetails" component={ProductDetails}
+      />
     </Stack.Navigator>
   )
 }
