@@ -1,5 +1,5 @@
-import React from 'react'
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useRef } from 'react'
+import { Dimensions, FlatList, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
@@ -21,30 +21,38 @@ const colorAr = [
 ]
 const bgColor = (i) => colorAr[i % colorAr.length];
 
-const ListItem = ({ item, index, animation }) => {
+const ListItem = ({ item, index, animation, navigation }) => {
   return (
     <Animatable.View
       animation={animation}
       duration={1000}
       delay={index * 300}
     >
-      <TouchableOpacity style={styles.listItem}>
-        <View style={[styles.image, { backgroundColor: bgColor(index) }]} />
+      <View style={styles.listItem}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => navigation.navigate('Screen')}>
+          <View style={[styles.image, { backgroundColor: bgColor(index) }]} />
+        </TouchableOpacity>
         <View style={styles.detailsContainer}>
           <Text style={styles.name}>Lorem ipsum</Text>
-          <Icon type={Icons.Feather} name="more-vertical" size={20} />
+          <Icon type={Icons.Feather} name="more-vertical" size={20} color={Colors.black} />
         </View>
-      </TouchableOpacity>
+      </View>
     </Animatable.View>
   )
 }
 
 export default function ListScreen({ route, navigation }) {
 
+  const viewRef = useRef(null);
   const animation = Animations[Math.floor(Math.random() * Animations.length)]
-  console.log(animation);
+  console.log('====================================');
+  console.log(Math.floor(Math.random() * Animations.length), Math.random() * Animations.length, Animations.length);
+  console.log('====================================');
+
   const renderItem = ({ item, index }) => (
-    <ListItem item={item} index={index} animation={animation} />)
+    <ListItem item={item} index={index} animation={animation} navigation={navigation} />)
 
   const ListEmptyComponent = () => {
     const anim = {
@@ -65,6 +73,14 @@ export default function ListScreen({ route, navigation }) {
       </View>
     )
   }
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      viewRef.current.animate({ 0: { opacity: 0.5, }, 1: { opacity: 1 } });
+    })
+    // ToastAndroid.show(animation+ ' Animation', ToastAndroid.SHORT);
+    return () => unsubscribe;
+  }, [navigation])
+
   return (
     <View style={[Styles.container]}>
       <MyHeader
@@ -74,22 +90,26 @@ export default function ListScreen({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       />
-      <FlatList
-        data={Array(15).fill('')}
-        keyExtractor={(_, i) => String(i)}
-        numColumns={2}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={ListEmptyComponent}
-      />
+      <Animatable.View
+        ref={viewRef}
+        easing={'ease-in-out'}
+        duration={500}
+        style={Styles.container}>
+        <FlatList
+          data={Array(15).fill('')}
+          keyExtractor={(_, i) => String(i)}
+          numColumns={2}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+          ListEmptyComponent={ListEmptyComponent}
+        />
+      </Animatable.View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  details: {
-    margin: 8,
-  },
   name: {
     fontWeight: 'bold',
     fontSize: 16,
@@ -104,11 +124,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  header: {
-    fontSize: 32,
-    backgroundColor: '#fff',
-  },
-
   listItem: {
     height: 200,
     width: Dimensions.get('window').width / 2 - 16,
@@ -120,7 +135,7 @@ const styles = StyleSheet.create({
     height: 150,
     margin: 5,
     borderRadius: 10,
-    backgroundColor: '#f45'
+    backgroundColor: Colors.primary,
   },
   detailsContainer: {
     paddingHorizontal: 16,

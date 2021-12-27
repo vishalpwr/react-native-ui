@@ -25,9 +25,10 @@ import ContactList from './screens/ContactList';
 import ListScreen from './screens/ListScreen';
 import { Provider } from 'react-native-paper';
 import Screen from './screens/Screen';
-import ProductList from './screens/shop/ProductList';
-import ProductDetails from './screens/shop/ProductDetails';
+import ProductsList from './screens/shop/ProductsList';
+import DetailsScreen from './screens/shop/DetailsScreen';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import ListScreenDark from './screens/ListScreenDark';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -71,9 +72,13 @@ const RootStack = () => {
       <Stack.Screen name="Tab5" component={Tab5} />
       <Stack.Screen name="Contacts" component={ContactList} />
       <Stack.Screen name="List" component={ListScreen} />
+      <Stack.Screen name="DarkList" component={ListScreenDark} />
       <Stack.Screen name="Screen" component={Screen} />
-      <Stack.Screen name="ProductList" component={ProductList} />
-      <Stack.Screen name="ProductDetails" component={ProductDetails}
+      <Stack.Screen name="Products" component={ProductsList} />
+      <Stack.Screen name="Details" component={DetailsScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+        }}
       />
     </Stack.Navigator>
   )

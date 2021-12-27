@@ -28,7 +28,6 @@ export default function Tab4() {
                 <Icon name={_.icon} type={_.type} size={size} color={color} />
               )
             }}
-
           />
         )
       })}

@@ -15,7 +15,6 @@ export default function Screen({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       />
-      <Button onPress={() => { }}>Open Something</Button>
     </View>
   )
 }

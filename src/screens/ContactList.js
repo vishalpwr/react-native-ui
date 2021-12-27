@@ -1,5 +1,5 @@
-import React from 'react'
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useRef } from 'react'
+import { Dimensions, FlatList, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
@@ -30,8 +30,7 @@ const ContactItem = ({ item: { name, number }, index, animation }) => {
 }
 
 export default function ContactList({ route, navigation }) {
-
-
+  const viewRef = useRef(null);
   const animation = Animations[Math.floor(Math.random() * Animations.length)]
   console.log(animation);
   const ItemSeparator = () => <View style={styles.separator} />
@@ -58,6 +57,13 @@ export default function ContactList({ route, navigation }) {
       </Animatable.View>
     )
   }
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      viewRef.current.animate({ 0: { opacity: 0.5, }, 1: { opacity: 1 } });
+    })
+    // ToastAndroid.show(animation+ ' Animation', ToastAndroid.SHORT);
+    return () => unsubscribe;
+  }, [navigation])
   return (
     <View style={[Styles.container]}>
       <MyHeader
@@ -67,14 +73,20 @@ export default function ContactList({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       />
-      <FlatList
-        data={contacts}
-        keyExtractor={(_, i) => String(i)}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={ItemSeparator}
-        ListEmptyComponent={ListEmptyComponent}
-      />
+      <Animatable.View
+        ref={viewRef}
+        easing={'ease-in-out'}
+        duration={500}
+        style={Styles.container}>
+        <FlatList
+          data={contacts}
+          keyExtractor={(_, i) => String(i)}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={ItemSeparator}
+          ListEmptyComponent={ListEmptyComponent}
+        />
+      </Animatable.View>
     </View>
   )
 }
