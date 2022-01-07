@@ -64,14 +64,14 @@ export default function DetailsScreen({ navigation, route }) {
       StatusBar.setBarStyle('light-content')
     })
     return () => unsubscribe;
-  }, [])
+  }, [navigation])
   useEffect(() => {
     const unsubscribe = navigation.addListener('blur', () => {
       StatusBar.setBackgroundColor(Colors.white);
       StatusBar.setBarStyle('dark-content')
     })
     return () => unsubscribe;
-  }, [])
+  }, [navigation])
   return (
     <View style={[styles.container, { backgroundColor: item.bgColor }]}>
       <MyHeader
