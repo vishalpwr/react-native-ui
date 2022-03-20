@@ -28,7 +28,7 @@ import Screen from './screens/Screen';
 import ProductsList from './screens/shop/ProductsList';
 import DetailsScreen from './screens/shop/DetailsScreen';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
-import ListScreenDark from './screens/ListScreenDark';
+import Fab from './screens/fab/Fab';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -72,7 +72,6 @@ const RootStack = () => {
       <Stack.Screen name="Tab5" component={Tab5} />
       <Stack.Screen name="Contacts" component={ContactList} />
       <Stack.Screen name="List" component={ListScreen} />
-      <Stack.Screen name="DarkList" component={ListScreenDark} />
       <Stack.Screen name="Screen" component={Screen} />
       <Stack.Screen name="Products" component={ProductsList} />
       <Stack.Screen name="Details" component={DetailsScreen}
@@ -80,6 +79,7 @@ const RootStack = () => {
           cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
         }}
       />
+      <Stack.Screen name="Fab" component={Fab} />
     </Stack.Navigator>
   )
 }

@@ -21,8 +21,12 @@ const Home = ({ navigation }) => {
         left={props => <List.Icon {...props} icon="folder" />}>
         <List.Item title="Contacts Screen" onPress={() => navigate('Contacts')} />
         <List.Item title="List Screen" onPress={() => navigate('List')} />
-        <List.Item title="Dark List Screen" onPress={() => navigate('DarkList')} />
         <List.Item title="Products Screen" onPress={() => navigate('Products')} />
+      </List.Accordion>
+      <List.Accordion
+        title="Floating Action Button"
+        left={props => <List.Icon {...props} icon="folder" />}>
+        <List.Item title="Animated Fab" onPress={() => navigate('Fab')} />
       </List.Accordion>
     </View>
   )
