@@ -48,3 +48,14 @@ expo install react-native-pager-view
 ```
 
 <img src="/gif/tab5.jpg" width="250" height="140" />
+
+# Floating Action Button (FAB)
+
+### react-native-reanimated-2
+```
+installation and configuration for android/ios
+https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation
+```
+
+### Demo
+<img src="/gif/FAB-demo.gif" width="250" height="500" />
