@@ -28,6 +28,11 @@ const Home = ({ navigation }) => {
         left={props => <List.Icon {...props} icon="folder" />}>
         <List.Item title="Animated Fab" onPress={() => navigate('Fab')} />
       </List.Accordion>
+      <List.Accordion
+        title="Drawer Navigation"
+        left={props => <List.Icon {...props} icon="folder" />}>
+        <List.Item title="Drawer 1" onPress={() => navigate('Drawer1')} />
+      </List.Accordion>
     </View>
   )
 }

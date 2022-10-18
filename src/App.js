@@ -29,6 +29,7 @@ import ProductsList from './screens/shop/ProductsList';
 import DetailsScreen from './screens/shop/DetailsScreen';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import Fab from './screens/fab/Fab';
+import DrawerNav1 from './screens/drawer/drawer1/DrawerNav1';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -80,6 +81,7 @@ const RootStack = () => {
         }}
       />
       <Stack.Screen name="Fab" component={Fab} />
+      <Stack.Screen name="Drawer1" component={DrawerNav1} />
     </Stack.Navigator>
   )
 }
