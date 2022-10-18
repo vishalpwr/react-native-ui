@@ -12,6 +12,8 @@ npm i @react-navigation/drawer
 ### This is starter code for drawer navigation, I'll upload full code once view and like count of this video reached at particular threshold.
 ### Like, Share and subscribe and stay tuned...
 
+Tutorial: https://youtu.be/FATLP5SkGxE
+
 ### Demo
 <img src="/gif/drawer1.png" width="600" height="600" />
 _____________________________________________________________________
