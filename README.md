@@ -2,6 +2,16 @@
 
 # React-Native
 _____________________________________________________________________
+# Custom Drawer Navigation v6
+```
+install drawer dependency
+yarn add @react-navigation/drawer
+or
+npm i @react-navigation/drawer
+```
+# This is starter code, I'll upload full code once view and like count of this video reached at particular threshold.
+# Like, Share and subscribe and stay tuned...
+_____________________________________________________________________
 # Floating Action Button (FAB)
 
 ### react-native-reanimated-2
