@@ -9,8 +9,11 @@ yarn add @react-navigation/drawer
 or
 npm i @react-navigation/drawer
 ```
-# This is starter code, I'll upload full code once view and like count of this video reached at particular threshold.
-# Like, Share and subscribe and stay tuned...
+### This is starter code for drawer navigation, I'll upload full code once view and like count of this video reached at particular threshold.
+### Like, Share and subscribe and stay tuned...
+
+### Demo
+<img src="/gif/drawer1.png" width="600" height="600" />
 _____________________________________________________________________
 # Floating Action Button (FAB)
 
