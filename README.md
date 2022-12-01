@@ -16,7 +16,8 @@ Tutorial: https://youtu.be/FATLP5SkGxE
 
 ### Demo
 <img src="/gif/drawer1.png" width="600" height="600" />
-_____________________________________________________________________
+___________________________________________________________
+
 # Floating Action Button (FAB)
 
 ### react-native-reanimated-2
@@ -27,7 +28,8 @@ https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installatio
 ### Demo
 <img src="/gif/FAB-demo.gif" width="250" height="500" />
 
-_____________________________________________________________________
+____________________________________________________________
+
 ### React-Navigation
 https://reactnavigation.org/docs/getting-started
 
