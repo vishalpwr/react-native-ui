@@ -14,7 +14,7 @@ Link: https://youtu.be/FATLP5SkGxE
 
 ### Demo
 <picture>
-  <source width="600" height="000" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
+  <source width="600" height="600" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
   <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
 </picture>
 
