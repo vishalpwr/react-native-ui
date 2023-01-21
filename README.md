@@ -2,23 +2,27 @@
 
 # React-Native
 _____________________________________________________________________
-# Custom Drawer Navigation v6
-```
+```sh
 install drawer dependency
 yarn add @react-navigation/drawer
 or
 npm i @react-navigation/drawer
 ```
-### This is starter code for drawer navigation, I'll upload full code once view and like count of this video reached at particular threshold.
-### Like, Share and subscribe and stay tuned...
+# Animated Custom Drawer Navigation v6
 
-Tutorial: https://youtu.be/FATLP5SkGxE
+Link: https://youtu.be/FATLP5SkGxE
 
 ### Demo
-<img src="/gif/drawer1.png" width="600" height="600" />
-___________________________________________________________
+<picture>
+  <source width="600" height="000" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
+  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
+</picture>
 
+### Like, Share and subscribe and stay tuned for more such type of videos...
+_____________________________________________________________________
 # Floating Action Button (FAB)
+
+Tutorial: https://youtu.be/FATLP5SkGxE
 
 ### react-native-reanimated-2
 ```
@@ -26,10 +30,12 @@ installation and configuration for android/ios
 https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation
 ```
 ### Demo
-<img src="/gif/FAB-demo.gif" width="250" height="500" />
+<picture>
+  <source width="250" height="500" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/FAB-demo.gif">
+  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/FAB-demo.gif">
+</picture>
 
-____________________________________________________________
-
+_____________________________________________________________________
 ### React-Navigation
 https://reactnavigation.org/docs/getting-started
 
@@ -42,15 +48,20 @@ Tutorial:
 * Tab3 link: https://youtu.be/Y7apwk6hQOY
 
 ### Demo
-<img src="/gif/anim-Tab.gif" width="250" height="500" />
-
+<picture>
+  <source width="250" height="500" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/anim-Tab.gif">
+  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/anim-Tab.gif">
+</picture>
 
 ### For Tab4:
 * https://reactnavigation.org/docs/material-bottom-tab-navigator
 ```
 npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
 ```
-<img src="/gif/tab4.jpg" width="250" height="120" />
+<picture>
+  <source width="250" height="120" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab4.jpg">
+  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab4.jpg">
+</picture>
 
 ### For Tab5:
 * https://reactnavigation.org/docs/material-top-tab-navigator
@@ -63,7 +74,10 @@ for expo
 expo install react-native-pager-view
 ```
 
-<img src="/gif/tab5.jpg" width="250" height="140" />
+<picture>
+  <source width="250" height="140" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab5.jpg">
+  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab5.jpg">
+</picture>
 ______________________________________________________________________________________________
 
 clone the app and run.

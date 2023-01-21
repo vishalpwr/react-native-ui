@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import { ScreensArray } from '../arrays';
 import CustomDrawer1 from './CustomDrawer1';
 
@@ -12,6 +12,7 @@ const DrawerNav1 = () => {
       screenOptions={{
         drawerStyle: styles.drawerStyles,
         drawerType: 'front',
+        swipeEdgeWidth: Platform.OS === 'android' && 180,
       }}
       drawerContent={(props) => <CustomDrawer1 {...props} />}
     >
