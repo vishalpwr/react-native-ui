@@ -13,10 +13,7 @@ npm i @react-navigation/drawer
 Link: https://youtu.be/FATLP5SkGxE
 
 ### Demo
-<picture>
-  <source width="600" height="600" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
-  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/drawer1.png">
-</picture>
+<img width="600" height="600" src="/gif/drawer1.png">
 
 ### Like, Share and subscribe and stay tuned for more such type of videos...
 _____________________________________________________________________
@@ -30,10 +27,7 @@ installation and configuration for android/ios
 https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation
 ```
 ### Demo
-<picture>
-  <source width="250" height="500" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/FAB-demo.gif">
-  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/FAB-demo.gif">
-</picture>
+<img src="/gif/FAB-demo.gif" width="250" height="500"/>
 
 _____________________________________________________________________
 ### React-Navigation
@@ -48,20 +42,14 @@ Tutorial:
 * Tab3 link: https://youtu.be/Y7apwk6hQOY
 
 ### Demo
-<picture>
-  <source width="250" height="500" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/anim-Tab.gif">
-  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/anim-Tab.gif">
-</picture>
+<img src="/gif/anim-Tab.gif" width="250" height="500"/>
 
 ### For Tab4:
 * https://reactnavigation.org/docs/material-bottom-tab-navigator
 ```
 npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
 ```
-<picture>
-  <source width="250" height="120" media="(prefers-color-scheme: dark)" srcset="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab4.jpg">
-  <img src="https://github.com/vishalpwr/react-native-ui/blob/master/gif/tab4.jpg">
-</picture>
+<img src="gif/tab4.jpg" width="250" height="120"/>
 
 ### For Tab5:
 * https://reactnavigation.org/docs/material-top-tab-navigator
