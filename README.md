@@ -2,8 +2,8 @@
 
 # React-Native
 _____________________________________________________________________
+install react navigation drawer dependency
 ```sh
-install drawer dependency
 yarn add @react-navigation/drawer
 or
 npm i @react-navigation/drawer
