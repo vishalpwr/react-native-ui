@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon, { Icons } from '../components/Icons';
 import Screen from '../screens/Screen';
@@ -18,20 +18,22 @@ const TabArr = [
 
 export default function Tab4() {
   return (
-    <Tab.Navigator>
-      {TabArr.map((_, index) => {
-        return (
-          <Tab.Screen key={index} name={_.route} component={_.component}
-            options={{
-              tabBarColor: _.tabBarColor,
-              tabBarIcon: ({color, size}) => (
-                <Icon name={_.icon} type={_.type} size={size} color={color} />
-              )
-            }}
-          />
-        )
-      })}
-    </Tab.Navigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Tab.Navigator>
+        {TabArr.map((_, index) => {
+          return (
+            <Tab.Screen key={index} name={_.route} component={_.component}
+              options={{
+                tabBarColor: _.tabBarColor,
+                tabBarIcon: ({ color, size }) => (
+                  <Icon name={_.icon} type={_.type} size={size} color={color} />
+                )
+              }}
+            />
+          )
+        })}
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 }
 

@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useReducer, useRef } from 'react'
 import { useDrawerProgress } from '@react-navigation/drawer'
 import { colors, constant } from '../constant'
@@ -96,7 +96,7 @@ const CustomDrawer1 = (props) => {
   })
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* header */}
       <Animated.View style={[styles.row, styles.view, styles.marginTop, viewStyles2('top')]}>
         <View style={styles.iconContainer}>
@@ -153,7 +153,7 @@ const CustomDrawer1 = (props) => {
           </View>
         </Animated.View>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 

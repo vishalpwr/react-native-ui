@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
 import Colors from '../constants/Colors';
 import ColorScreen from '../screens/ColorScreen';
@@ -22,9 +22,9 @@ const TabButton = (props) => {
 
   useEffect(() => {
     if (focused) {
-      viewRef.current.animate({0: {scale: .5, rotate: '0deg'}, 1: {scale: 1.5, rotate: '360deg'}});
+      viewRef.current.animate({ 0: { scale: .5, rotate: '0deg' }, 1: { scale: 1.5, rotate: '360deg' } });
     } else {
-      viewRef.current.animate({0: {scale: 1.5, rotate: '360deg'}, 1: {scale: 1, rotate: '0deg'}});
+      viewRef.current.animate({ 0: { scale: 1.5, rotate: '360deg' }, 1: { scale: 1, rotate: '0deg' } });
     }
   }, [focused])
 
@@ -45,30 +45,32 @@ const TabButton = (props) => {
 
 export default function AnimTab1() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          height: 60,
-          position: 'absolute',
-          bottom: 16,
-          right: 16,
-          left: 16,
-          borderRadius: 16
-        }
-      }}
-    >
-      {TabArr.map((item, index) => {
-        return (
-          <Tab.Screen key={index} name={item.route} component={item.component}
-            options={{
-              tabBarShowLabel: false,
-              tabBarButton: (props) => <TabButton {...props} item={item} />
-            }}
-          />
-        )
-      })}
-    </Tab.Navigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            height: 60,
+            position: 'absolute',
+            bottom: 16,
+            right: 16,
+            left: 16,
+            borderRadius: 16
+          }
+        }}
+      >
+        {TabArr.map((item, index) => {
+          return (
+            <Tab.Screen key={index} name={item.route} component={item.component}
+              options={{
+                tabBarShowLabel: false,
+                tabBarButton: (props) => <TabButton {...props} item={item} />
+              }}
+            />
+          )
+        })}
+      </Tab.Navigator>
+    </SafeAreaView>
   )
 }
 

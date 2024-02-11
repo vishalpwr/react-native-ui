@@ -33,6 +33,11 @@ const Home = ({ navigation }) => {
         left={props => <List.Icon {...props} icon="folder" />}>
         <List.Item title="Drawer 1" onPress={() => navigate('Drawer1')} />
       </List.Accordion>
+      <List.Accordion
+        title="Header Animation"
+        left={props => <List.Icon {...props} icon="folder" />}>
+        <List.Item title="Header 1" onPress={() => navigate('Header1')} />
+      </List.Accordion>
     </View>
   )
 }

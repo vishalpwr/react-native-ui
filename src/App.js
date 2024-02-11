@@ -41,13 +41,13 @@ const App = () => {
 
   return (
     <Provider>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={Colors.white} />
-        <NavigationContainer>
-          <RootStack />
-        </NavigationContainer>
-      </SafeAreaView>
+      {/* <SafeAreaView style={backgroundStyle}> */}
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={Colors.white} />
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+      {/* </SafeAreaView> */}
     </Provider>
   );
 };

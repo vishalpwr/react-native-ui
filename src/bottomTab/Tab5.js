@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
 import Screen from '../screens/Screen';
 import Colors from '../constants/Colors';
@@ -16,36 +16,38 @@ const TabArr = [
 
 export default function Tab5() {
   return (
-    <Tab.Navigator
-      tabBarPosition="bottom"
-      screenOptions={{
-        swipeEnabled: false,
-        tabBarShowLabel: false,
-        tabBarIndicatorStyle: {
-          position: 'absolute',
-          top: 0,
-          height: 6,
-          backgroundColor: Colors.primary,
-        },
-        tabBarItemStyle: { flexDirection: 'row' },
-        // tabBarStyle: { backgroundColor: 'powderblue' },
-        // tabBarScrollEnabled: true,
-        tabBarActiveTintColor: Colors.primary,
-        tabBarInactiveTintColor: Colors.primaryLite,
-      }}
-    >
-      {TabArr.map((_, index) => {
-        return (
-          <Tab.Screen key={index} name={_.route} component={_.component}
-            options={{
-              tabBarIcon: ({color, size, focused}) => (
-                <Icon name={focused ? _.activeIcon : _.inActiveIcon} type={_.type} size={size} color={color} />
-              ),
-            }}
-          />
-        )
-      })}
-    </Tab.Navigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Tab.Navigator
+        tabBarPosition="bottom"
+        screenOptions={{
+          swipeEnabled: false,
+          tabBarShowLabel: false,
+          tabBarIndicatorStyle: {
+            position: 'absolute',
+            top: 0,
+            height: 6,
+            backgroundColor: Colors.primary,
+          },
+          tabBarItemStyle: { flexDirection: 'row' },
+          // tabBarStyle: { backgroundColor: 'powderblue' },
+          // tabBarScrollEnabled: true,
+          tabBarActiveTintColor: Colors.primary,
+          tabBarInactiveTintColor: Colors.primaryLite,
+        }}
+      >
+        {TabArr.map((_, index) => {
+          return (
+            <Tab.Screen key={index} name={_.route} component={_.component}
+              options={{
+                tabBarIcon: ({ color, size, focused }) => (
+                  <Icon name={focused ? _.activeIcon : _.inActiveIcon} type={_.type} size={size} color={color} />
+                ),
+              }}
+            />
+          )
+        })}
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 }
 

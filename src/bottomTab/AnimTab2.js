@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
 import Colors from '../constants/Colors';
 import ColorScreen from '../screens/ColorScreen';
@@ -68,23 +68,25 @@ const TabButton = (props) => {
 
 export default function AnimTab1() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: styles.tabBar,
-      }}
-    >
-      {TabArr.map((item, index) => {
-        return (
-          <Tab.Screen key={index} name={item.route} component={item.component}
-            options={{
-              tabBarShowLabel: false,
-              tabBarButton: (props) => <TabButton {...props} item={item} />
-            }}
-          />
-        )
-      })}
-    </Tab.Navigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: styles.tabBar,
+        }}
+      >
+        {TabArr.map((item, index) => {
+          return (
+            <Tab.Screen key={index} name={item.route} component={item.component}
+              options={{
+                tabBarShowLabel: false,
+                tabBarButton: (props) => <TabButton {...props} item={item} />
+              }}
+            />
+          )
+        })}
+      </Tab.Navigator>
+    </SafeAreaView>
   )
 }
 
