@@ -63,9 +63,7 @@ export default function AnimTab3() {
           tabBarStyle: {
             height: 60,
             position: 'absolute',
-            bottom: 16,
-            right: 16,
-            left: 16,
+            margin: 16,
             borderRadius: 16
           }
         }}
@@ -89,6 +87,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+    height: 60,
   },
   btn: {
     flexDirection: 'row',

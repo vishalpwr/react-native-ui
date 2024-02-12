@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import {
@@ -23,7 +23,7 @@ import Tab5 from './bottomTab/Tab5';
 import Colors from './constants/Colors';
 import ContactList from './screens/ContactList';
 import ListScreen from './screens/ListScreen';
-import { Provider } from 'react-native-paper';
+import { Provider, MD2DarkTheme, DefaultTheme as PaperDefaultTheme } from 'react-native-paper';
 import Screen from './screens/Screen';
 import ProductsList from './screens/shop/ProductsList';
 import DetailsScreen from './screens/shop/DetailsScreen';
@@ -40,14 +40,12 @@ const App = () => {
   };
 
   return (
-    <Provider>
-      {/* <SafeAreaView style={backgroundStyle}> */}
+    <Provider theme={isDarkMode ? MD2DarkTheme : PaperDefaultTheme}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={Colors.white} />
-      <NavigationContainer>
+      <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
         <RootStack />
       </NavigationContainer>
-      {/* </SafeAreaView> */}
     </Provider>
   );
 };

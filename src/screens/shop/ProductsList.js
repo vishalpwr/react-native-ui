@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { SharedElement } from 'react-navigation-shared-element'
 import MyHeader from '../../components/MyHeader'
 import Colors from '../../constants/Colors'
@@ -25,7 +25,7 @@ const ListItem = ({ item, navigation }) => {
 
 export default function ProductsList({ navigation, route }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <MyHeader
         back
         onPressBack={() => navigation.goBack()}
@@ -41,7 +41,7 @@ export default function ProductsList({ navigation, route }) {
         keyExtractor={(item, index) => item.id + index.toString()}
         renderItem={({ item }) => <ListItem item={item} navigation={navigation} />}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 

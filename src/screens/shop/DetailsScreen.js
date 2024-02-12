@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Dimensions, Image, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { SharedElement } from 'react-navigation-shared-element'
 import Icon, { Icons } from '../../components/Icons'
 import MyHeader from '../../components/MyHeader'
@@ -73,57 +73,60 @@ export default function DetailsScreen({ navigation, route }) {
     return () => unsubscribe;
   }, [navigation])
   return (
-    <View style={[styles.container, { backgroundColor: item.bgColor }]}>
-      <MyHeader
-        back
-        onPressBack={() => navigation.goBack()}
-        title={route.name}
-        right="more-vertical"
-        optionalBtn="shopping-cart"
-        headerBg={item.bgColor}
-        iconColor={Colors.white}
-        onRightPress={() => console.log('right')}
-      />
-      <View style={styles.container}>
-        <View style={styles.topContainer}>
-          <View>
-            <Text style={styles.smallText}>{item.subtitle}</Text>
-            <Text style={styles.bigText}>{item.title}</Text>
+    <>
+      <SafeAreaView style={[styles.container, { backgroundColor: item.bgColor }]}>
+        <MyHeader
+          back
+          onPressBack={() => navigation.goBack()}
+          title={route.name}
+          right="more-vertical"
+          optionalBtn="shopping-cart"
+          headerBg={item.bgColor}
+          iconColor={Colors.white}
+          onRightPress={() => console.log('right')}
+        />
+        <View style={styles.container}>
+          <View style={styles.topContainer}>
+            <View>
+              <Text style={styles.smallText}>{item.subtitle}</Text>
+              <Text style={styles.bigText}>{item.title}</Text>
+            </View>
+            <View>
+              <Text style={styles.smallText}>Price</Text>
+              <Text style={styles.bigText}>{item.price}</Text>
+            </View>
           </View>
-          <View>
-            <Text style={styles.smallText}>Price</Text>
-            <Text style={styles.bigText}>{item.price}</Text>
+          <SharedElement id={`item.${item.id}.image`} style={styles.imageContainer}>
+            <Image source={item.image} style={styles.image} resizeMode='center' />
+          </SharedElement>
+          <View style={styles.bottomContainer}>
+            <View style={styles.variants}>
+              <ColorsSelector />
+              <SizeSelector />
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Description</Text>
+              <Text>{item.description}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Quantity />
+              <TouchableOpacity style={[styles.favoriteBtn, { backgroundColor: item.bgColor }]}>
+                <Icon type={Icons.AntDesign} name="heart" size={18} color={Colors.white} />
+              </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <TouchableOpacity style={[styles.cartBtm, { borderColor: item.bgColor }]}>
+                <Icon type={Icons.AntDesign} name="shoppingcart" color={item.bgColor} />
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.btn, { backgroundColor: item.bgColor }]}>
+                <Text style={styles.btnText}>Buy Now</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-        <SharedElement id={`item.${item.id}.image`} style={styles.imageContainer}>
-          <Image source={item.image} style={styles.image} resizeMode='center' />
-        </SharedElement>
-        <View style={styles.bottomContainer}>
-          <View style={styles.variants}>
-            <ColorsSelector />
-            <SizeSelector />
-          </View>
-          <View style={styles.descriptionContainer}>
-            <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Description</Text>
-            <Text>{item.description}</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Quantity />
-            <TouchableOpacity style={[styles.favoriteBtn, { backgroundColor: item.bgColor }]}>
-              <Icon type={Icons.AntDesign} name="heart" size={18} color={Colors.white} />
-            </TouchableOpacity>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <TouchableOpacity style={[styles.cartBtm, { borderColor: item.bgColor }]}>
-              <Icon type={Icons.AntDesign} name="shoppingcart" color={item.bgColor} />
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.btn, { backgroundColor: item.bgColor }]}>
-              <Text style={styles.btnText}>Buy Now</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-    </View>
+      </SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: Colors.white }} />
+    </>
   )
 }
 

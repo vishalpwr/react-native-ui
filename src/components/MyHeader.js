@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native'
 import { Badge, Surface, Text, Title } from 'react-native-paper'
 import Feather from 'react-native-vector-icons/Feather'
 import Colors from '../constants/Colors';
@@ -18,19 +18,22 @@ const AppHeader = ({
 	onRightPress,
 	optionalBtn,
 	optionalBtnPress,
-	headerBg = "white",
-	iconColor = 'black',
+	headerBg,
+	iconColor,
 	titleAlight,
 	optionalBadge
 }) => {
 
+	const isDarkMode = useColorScheme() === 'dark';
+	const color = isDarkMode ? Colors.white : Colors.dark;
+	const bgColor = isDarkMode ? Colors.dark : Colors.white;
 	const LeftView = () => (
 		<View style={styles.view}>
 			{menu && <TouchableOpacity onPress={onPressMenu}>
-				<Feather name="menu" size={IconSize} color={iconColor} />
+				<Feather name="menu" size={IconSize} color={color || iconColor} />
 			</TouchableOpacity>}
 			{back && <TouchableOpacity onPress={onPressBack}>
-				<Feather name="arrow-left" size={IconSize} color={iconColor} />
+				<Feather name="arrow-left" size={IconSize} color={color || iconColor} />
 			</TouchableOpacity>}
 		</View>
 	)
@@ -38,17 +41,17 @@ const AppHeader = ({
 		rightComponent ? rightComponent :
 			<View style={[styles.view, styles.rightView]}>
 				{optionalBtn && <TouchableOpacity style={styles.rowView} onPress={optionalBtnPress}>
-					<Feather name={optionalBtn} size={IconSize} color={iconColor} />
+					<Feather name={optionalBtn} size={IconSize} color={color || iconColor} />
 					{optionalBadge && <Badge style={{ position: 'absolute', top: -5, right: -10 }}>{optionalBadge}</Badge>}
 				</TouchableOpacity>}
 				{right !== '' && <TouchableOpacity onPress={onRightPress}>
-					<Feather name={right} size={IconSize} color={iconColor} />
+					<Feather name={right} size={IconSize} color={color || iconColor} />
 				</TouchableOpacity>}
 			</View>
 	)
 	const TitleView = () => (
 		<View style={styles.titleView}>
-			<Title style={{ color: iconColor, textAlign: titleAlight }}>{title}</Title>
+			<Title style={{ color: color || iconColor, textAlign: titleAlight }}>{title}</Title>
 		</View>
 	)
 	return (

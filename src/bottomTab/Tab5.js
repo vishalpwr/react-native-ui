@@ -29,7 +29,7 @@ export default function Tab5() {
             backgroundColor: Colors.primary,
           },
           tabBarItemStyle: { flexDirection: 'row' },
-          // tabBarStyle: { backgroundColor: 'powderblue' },
+          tabBarStyle: { height: 70, justifyContent: 'center' },
           // tabBarScrollEnabled: true,
           tabBarActiveTintColor: Colors.primary,
           tabBarInactiveTintColor: Colors.primaryLite,

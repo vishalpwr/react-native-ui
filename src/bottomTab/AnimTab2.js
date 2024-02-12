@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
 import Colors from '../constants/Colors';
 import ColorScreen from '../screens/ColorScreen';
 import * as Animatable from 'react-native-animatable';
+import { useTheme } from '@react-navigation/native';
 
 const TabArr = [
   { route: 'Home', label: 'Home', type: Icons.Feather, icon: 'home', component: ColorScreen },
@@ -28,6 +29,11 @@ const TabButton = (props) => {
   const viewRef = useRef(null);
   const circleRef = useRef(null);
   const textRef = useRef(null);
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const { colors } = useTheme()
+  const color = isDarkMode ? Colors.white : Colors.black;
+  const bgColor = colors.background;
 
   useEffect(() => {
     if (focused) {
@@ -50,7 +56,7 @@ const TabButton = (props) => {
         ref={viewRef}
         duration={1000}
         style={styles.container}>
-        <View style={styles.btn}>
+        <View style={[styles.btn, { borderColor: bgColor, backgroundColor: bgColor }]}>
           <Animatable.View
             ref={circleRef}
             style={styles.circle} />
@@ -58,7 +64,7 @@ const TabButton = (props) => {
         </View>
         <Animatable.Text
           ref={textRef}
-          style={styles.text}>
+          style={[styles.text, { color }]}>
           {item.label}
         </Animatable.Text>
       </Animatable.View>
@@ -95,13 +101,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    height: 70,
   },
   tabBar: {
     height: 70,
     position: 'absolute',
-    bottom: 16,
-    right: 16,
-    left: 16,
+    margin: 16,
     borderRadius: 16,
   },
   btn: {
@@ -122,8 +127,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   text: {
-    fontSize: 10,
+    fontSize: 12,
     textAlign: 'center',
     color: Colors.primary,
+    fontWeight: '500'
   }
 })

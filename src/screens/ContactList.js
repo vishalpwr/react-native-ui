@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Dimensions, FlatList, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import { Dimensions, FlatList, SafeAreaView, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
@@ -65,7 +65,7 @@ export default function ContactList({ route, navigation }) {
     return () => unsubscribe;
   }, [navigation])
   return (
-    <View style={[Styles.container]}>
+    <SafeAreaView style={Styles.container}>
       <MyHeader
         back
         onPressBack={() => navigation.goBack()}
@@ -87,7 +87,7 @@ export default function ContactList({ route, navigation }) {
           ListEmptyComponent={ListEmptyComponent}
         />
       </Animatable.View>
-    </View>
+    </SafeAreaView>
   )
 }
 

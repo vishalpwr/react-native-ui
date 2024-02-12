@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icon, { Icons } from '../components/Icons';
 import Colors from '../constants/Colors';
 import ColorScreen from '../screens/ColorScreen';
@@ -32,12 +32,14 @@ const TabButton = (props) => {
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={1}
-      style={styles.container}>
+      style={[styles.container, { top: 0 }]}>
       <Animatable.View
         ref={viewRef}
         duration={1000}
-        style={styles.container}>
-        <Icon type={item.type} name={focused ? item.activeIcon : item.inActiveIcon} color={focused ? Colors.primary : Colors.primaryLite} />
+      >
+        <Icon type={item.type}
+          name={focused ? item.activeIcon : item.inActiveIcon}
+          color={focused ? Colors.primary : Colors.primaryLite} />
       </Animatable.View>
     </TouchableOpacity>
   )
@@ -52,10 +54,10 @@ export default function AnimTab1() {
           tabBarStyle: {
             height: 60,
             position: 'absolute',
-            bottom: 16,
-            right: 16,
-            left: 16,
-            borderRadius: 16
+            margin: 16,
+            borderRadius: 16,
+            justifyContent: 'center',
+            alignItems: 'center',
           }
         }}
       >
@@ -79,5 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    height: 60,
   }
 })
