@@ -36,7 +36,7 @@ const Home = ({ navigation }) => {
       <List.Accordion
         title="Header Animation"
         left={props => <List.Icon {...props} icon="folder" />}>
-        <List.Item title="Header 1" onPress={() => navigate('Header1')} />
+        <List.Item title="Animated Header 1" onPress={() => navigate('HeaderAnim1')} />
       </List.Accordion>
     </View>
   )

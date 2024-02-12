@@ -11,6 +11,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export const Icons = {
     MaterialCommunityIcons,
@@ -27,7 +28,16 @@ export const Icons = {
     EvilIcons,
 }
 
-const Icon = ({ type, name, color, size = 24, style }) => {
+
+export interface IconProps {
+    type: Function;
+    name: string;
+    color?: string;
+    size?: number;
+    style?: StyleProp<ViewStyle>;
+}
+
+const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
     const fontSize = 24;
     const Tag = type;
     return (
