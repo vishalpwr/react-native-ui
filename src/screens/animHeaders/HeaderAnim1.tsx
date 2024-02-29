@@ -1,47 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, StyleSheet, Dimensions, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, Dimensions, StatusBar } from 'react-native';
 import Colors from '../../constants/Colors';
-import LinearGradient from 'react-native-linear-gradient';
 
 import MapList from '../../components/MapList';
 import images from '../../assets/images/images';
 import Icon, { Icons } from '../../components/Icons';
-import { headerPageText } from '../../constants/Constants';
+import { headerPageText, subtitle1, subtitle2, title } from '../../constants/Constants';
 
 export const { height: sHeight, width: sWidth } = Dimensions.get('screen')
 type Props = {}
 
-const HeaderAnim1 = (props: Props) => {
-  const scrollOffset = Platform.OS === 'ios' ? 200 : 340;
+const ImageHeight = 280;
 
+const HeaderAnim1 = () => {
   return (
-    <View style={[styles.container, { backgroundColor: Colors.black }]}>
+    <View style={styles.container}>
       <StatusBar translucent backgroundColor={'transparent'} />
-
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={() => { }}>
         <Icon type={Icons.Feather} name="chevron-left" color={Colors.white} />
       </TouchableOpacity>
-
-      <View style={[styles.headerImage]}>
-        <Image source={images.headerImg} resizeMode='contain' style={{ width: sWidth, zIndex: -1, }} />
+      <View style={styles.headerImage}>
+        <Image source={images.headerImg} resizeMode='contain' style={{ width: sWidth, zIndex: -1 }} />
       </View>
 
-      <View style={[]}>
+      <View>
         <View style={[styles.headerView]}>
           <View>
-            <Text style={[styles.title]}>Elevate Your Experience</Text>
+            <Text style={[styles.title]}>{title}</Text>
           </View>
-          {/* <View style={[{ marginTop: 30 }]}>
-            <Text style={[styles.title2]}>Elevate Your Experience</Text>
-          </View> */}
         </View>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{ backgroundColor: Colors.black, zIndex: 99 }}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Rise Above the Ordinary, Every Day.</Text>
-            <Text style={styles.text2}>Elevate Your Experience: Where Potential Meets Possibility.</Text>
+            <Text style={styles.text}>{subtitle1}</Text>
+            <Text style={styles.text2}>{subtitle2}</Text>
             <ScrollView horizontal style={{ paddingVertical: 30, }}>
               <MapList fragment data={[1, 2, 3, 4, 5, 6]}
                 renderItem={(item, index) => (
@@ -65,19 +59,18 @@ const HeaderAnim1 = (props: Props) => {
         </ScrollView>
       </View>
     </View>
-  )
-}
-
-export default HeaderAnim1;
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: Colors.black,
   },
   headerImage: {
     width: '100%',
-    height: 280,//sHeight * 0.3,
+    height: ImageHeight,
     justifyContent: 'center',
-    flexDirection: 'row',
     alignItems: 'center',
   },
   backButton: {
@@ -93,20 +86,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerView: {
-    width: "100%",
-    height: 100,
+    width: '100%',
     justifyContent: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
   },
   title: {
-    fontSize: 24,
+    fontSize: 38,
     fontWeight: '600',
     color: Colors.orange,
     marginHorizontal: 20,
   },
   title2: {
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: '500',
     color: Colors.orange,
     marginHorizontal: 20,
     textAlign: 'center',
@@ -137,3 +129,5 @@ const styles = StyleSheet.create({
     color: Colors.gray,
   },
 });
+
+export default HeaderAnim1;

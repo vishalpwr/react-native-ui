@@ -1,5 +1,5 @@
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
-import React, { JSXElementConstructor, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
 type Props = {
   data: any[];

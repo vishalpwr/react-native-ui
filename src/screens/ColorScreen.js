@@ -4,9 +4,10 @@ import * as Animatable from 'react-native-animatable'
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
+import Animated, { FadeIn, useAnimatedRef } from 'react-native-reanimated';
 
 export default function ColorScreen({ route, navigation }) {
-  const viewRef = React.useRef(null);
+  const viewRef = useAnimatedRef(null);
   const [bgColor, setBgColor] = useState();
   useEffect(() => {
     switch (route.name) {
@@ -18,14 +19,15 @@ export default function ColorScreen({ route, navigation }) {
       default: setBgColor(Colors.white);
     }
   }, [])
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      viewRef.current.animate({ 0: { opacity: 0.5, }, 1: { opacity: 1 } });
-    })
-    return () => unsubscribe;
-  }, [navigation])
+  // useEffect(() => {
+  //   const unsubscribe = navigation.addListener('focus', () => {
+  //     viewRef.current.animate({ 0: { opacity: 0.5, }, 1: { opacity: 1 } });
+  //   })
+  //   return () => unsubscribe;
+  // }, [navigation])
   return (
-    <View style={Styles.container}>
+    <Animated.View ref={viewRef} entering={FadeIn.duration(800)}
+      style={[Styles.container, { backgroundColor: bgColor }]}>
       <MyHeader
         menu
         onPressMenu={() => navigation.goBack()}
@@ -33,13 +35,9 @@ export default function ColorScreen({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       />
-      <Animatable.View
-        ref={viewRef}
-        easing={'ease-in-out'}
-        style={Styles.container}>
-        <View style={{backgroundColor: bgColor, flex: 1}} />
-      </Animatable.View>
-    </View>
+      <View style={[Styles.container, { backgroundColor: bgColor }]}>
+      </View>
+    </Animated.View>
   )
 }
 

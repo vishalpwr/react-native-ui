@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native'
-import { Badge, Surface, Text, Title } from 'react-native-paper'
+import { Badge, Surface, Text, Title, useTheme } from 'react-native-paper'
 import Feather from 'react-native-vector-icons/Feather'
 import Colors from '../constants/Colors';
 
@@ -23,10 +23,10 @@ const AppHeader = ({
 	titleAlight,
 	optionalBadge
 }) => {
-
-	const isDarkMode = useColorScheme() === 'dark';
-	const color = isDarkMode ? Colors.white : Colors.dark;
-	const bgColor = isDarkMode ? Colors.dark : Colors.white;
+	const { colors, dark } = useTheme()
+	const color = dark ? Colors.white : Colors.dark;
+	const bgColor = dark ? Colors.dark : Colors.white;
+	const backgroundColor = headerBg || colors.background;
 	const LeftView = () => (
 		<View style={styles.view}>
 			{menu && <TouchableOpacity onPress={onPressMenu}>
@@ -55,7 +55,7 @@ const AppHeader = ({
 		</View>
 	)
 	return (
-		<Surface style={[styles.header, style, { backgroundColor: headerBg }]}>
+		<Surface style={[styles.header, style, { backgroundColor }]}>
 			<LeftView />
 			<TitleView />
 			<RightView />
