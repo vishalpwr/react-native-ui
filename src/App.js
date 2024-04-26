@@ -10,6 +10,7 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import {
+  Platform,
   SafeAreaView,
   StatusBar,
   useColorScheme,
@@ -31,6 +32,8 @@ import { createSharedElementStackNavigator } from 'react-navigation-shared-eleme
 import Fab from './screens/fab/Fab';
 import DrawerNav1 from './screens/drawer/drawer1/DrawerNav1';
 import HeaderAnim1 from './screens/animHeaders/HeaderAnim1';
+import HeaderAnim2 from './screens/animHeaders/HeaderAnim2';
+import HeaderAnim3 from './screens/animHeaders/HeaderAnim3';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -43,7 +46,7 @@ const App = () => {
   return (
     <Provider theme={isDarkMode ? MD2DarkTheme : PaperDefaultTheme}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={Colors.white} />
+        backgroundColor={backgroundStyle.backgroundColor} />
       <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
         <RootStack />
       </NavigationContainer>
@@ -84,7 +87,17 @@ const RootStack = () => {
 
       <Stack.Screen name="HeaderAnim1" component={HeaderAnim1}
         options={{
-          gestureEnabled: false,
+          gestureEnabled: Platform.OS === 'ios',
+        }}
+      />
+      <Stack.Screen name="HeaderAnim2" component={HeaderAnim2}
+        options={{
+          // gestureEnabled: false,
+        }}
+      />
+      <Stack.Screen name="HeaderAnim3" component={HeaderAnim3}
+        options={{
+          // gestureEnabled: false,
         }}
       />
     </Stack.Navigator>

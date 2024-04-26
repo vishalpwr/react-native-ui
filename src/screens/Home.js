@@ -1,12 +1,12 @@
 import React from 'react'
 import { List } from 'react-native-paper';
-import { StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 
 const Home = ({ navigation }) => {
 
   const navigate = (route) => navigation.navigate(route)
   return (
-    <View styles={{ flex: 1 }}>
+    <ScrollView styles={{ flex: 1 }}>
       <List.Accordion
         title="Bottom Tab Navigation"
         left={props => <List.Icon {...props} icon="folder" />}>
@@ -37,8 +37,10 @@ const Home = ({ navigation }) => {
         title="Header Animation"
         left={props => <List.Icon {...props} icon="folder" />}>
         <List.Item title="Animated Header 1" onPress={() => navigate('HeaderAnim1')} />
+        <List.Item title="Animated Header 2" onPress={() => navigate('HeaderAnim2')} />
+        <List.Item title="Animated Header 3" onPress={() => navigate('HeaderAnim3')} />
       </List.Accordion>
-    </View>
+    </ScrollView>
   )
 }
 
